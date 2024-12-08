@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learing Model Deployment</title>
+    <h1>Customer Cost Presiction</h1>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label, input {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/predict", method="post">
+        <div>
+            <label for="unit_sales">Unit Sales (in millions):</label>
+            <input type="number" id="unit_sales" name="unit_sales" min="1" max="6" required>
+        </div><br>
+        <div>
+            <label for="avg_cars_at_home">Average Cars at Home:</label>
+            <input type="number" id="avg_cars_at_home" name="avg_cars_at_home" min="0" max="4" required>
+        </div><br>
+        <div>
+            <label for="coffee_bar">Coffee Bar (1 for Yes, 0 for No):</label>
+            <input type="number" id="coffee_bar" name="coffee_bar" min="0" max="1" required>
+        </div><br>
+        <div>
+            <label for="video_store">Video Store (1 for Yes, 0 for No):</label>
+            <input type="number" id="video_store" name="video_store" min="0" max="1" required>
+        </div><br>
+        <div>
+            <label for="salad_bar">Salad Bar (1 for Yes, 0 for No):</label>
+            <input type="number" id="salad_bar" name="salad_bar" min="0" max="1" required>
+        </div><br>
+        <div>
+            <label for="prepared_food">Prepared Food (1 for Yes, 0 for No):</label>
+            <input type="number" id="prepared_food" name="prepared_food" min="0" max="1" required>
+        </div><br>
+        <div>
+            <label for="florist">Florist (1 for Yes, 0 for No):</label>
+            <input type="number" id="florist" name="florist" min="0" max="1" required>
+        </div><br>
+        <div>
+            <label for="have_car">Have Car (1 for Yes, 0 for No):</label>
+            <input type="number" id="have_car" name="have_car" min="0" max="1" required>
+        </div><br>
+        <div>
+            <label for="store_sqft">Store Square Feet:</label>
+            <input type="number" id="store_sqft" name="store_sqft" min=15000 max=40000 required>
+        </div><br>
+            
+        <input type="submit" value="predict">
+    </form>
+    <h2>
+        {{ prediction_text }}
+    </h2>
+</body>
+</html>
